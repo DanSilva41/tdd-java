@@ -13,10 +13,19 @@
 	- O tipo double tem problemas de arredondamento, a versão mais nova do JUnit pede para você passar o "tamanho do erro aceitável".
 		assertEquals(esperado, calculado, 0.00001)
 
-	- Testes automatizados de unidade: Vantagens
+* Testes automatizados de unidade: 
+	Vantagens
 		1) Um teste de unidade executa muito rápido. Veja que ele gasta apenas alguns milissegundos para ser executado. Imagine o tempo que um humano levaria.
 		2) Um humano pode eventualmente executar um teste incorreto (montar o cenário ou validar a saída errada, por exemplo). A máquina nunca fará isso. A partir do momento que você escreveu o teste, ela sempre vai executar o mesmo teste.
 		3) É muito mais divertido escrever um teste automatizado do que testar manualmente.
 		
 		"linhas de código escritas com qualidade", então, muito provavelmente, você será mais produtivo com testes.
+	- Classes de equivalência: testes que são similares
+	"O ideal é escrevermos apenas um único teste para cada possível cenário diferente";
+	"A qualidade do seu código de teste deve ser tão boa quanto a de produção."
+	- Utilizar o importe estático em baterias de teste. Ex: import static org.junit.Assert.assertEquals;
+	
+	- Testes de regressão são importantes para ver o funcionamento de funcionalidades anteriores!
+	
+	- Precisamos sempre garantir todo o conteúdo da lista retornada. Veja que só garantir o tamanho da lista não nos ajuda muito, afinal a lista pode ter o tamanho certo, mas ter o conteúdo inválido.
 	
