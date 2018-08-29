@@ -26,6 +26,28 @@
 	- Utilizar o importe estático em baterias de teste. Ex: import static org.junit.Assert.assertEquals;
 	
 	- Testes de regressão são importantes para ver o funcionamento de funcionalidades anteriores!
-	
 	- Precisamos sempre garantir todo o conteúdo da lista retornada. Veja que só garantir o tamanho da lista não nos ajuda muito, afinal a lista pode ter o tamanho certo, mas ter o conteúdo inválido.
+	- A bateria de testes automatizados nos ajuda a encontrar problemas na nossa implementação de forma muito rápida.
 	
+	"Foque-se na classe que você está testando. Pense sobre o que você espera dela. Como ela deve funcionar? Se você passar tais parâmetros para ela, como ela deve reagir?"
+
+	- Classes importantes devem ser testadas
+	- Não se deixe enganar. Se o método contém uma regra de negócio, teste-o. Você agradecerá no futuro.
+
+* TDD (Test Driven Development):
+	Ao invés de escrever o código primeiro, vamos escrever os testes.
+	Simplicidade o tempo todo!
+	
+	1) Escrever um teste
+	2) Fazer o teste passar da maneira mais simples
+	3) Depois com a implementação OK, tempo para refatorar o código.
+	
+	Vantagens:
+		- Se sempre escrevermos o teste antes, garantimos que todo nosso código já "nasce" testado;
+		- Temos segurança para refatorar nosso código, afinal sempre refatoraremos com uma bateria de testes que garante que não quebraremos o comportamento já existente;
+		- Como o teste é a primeira classe que usa o seu código, você naturalmente tende a escrever código mais fácil de ser usado e, por consequência, mais fácil de ser mantido.
+		
+	- O termo dado para a ideia de dar sempre passos pequenos e escrever código simples o tempo todo é conhecido por baby steps.
+		 Segundo o próprio autor da prática, Kent Beck, você deve tomar passos pequenos sempre que sua "confiança sobre o código" estiver baixa. Se você está trabalhando em um trecho de código e está bastante confiante sobre ele, você pode dar passos um pouco maiores.
+		 
+	TDD faz muito sentido ao implementar novas funcionalidades, ao corrigir bugs, ao trabalhar em códigos complexos, etc. Mas às vezes não precisamos seguir o fluxo ideal da prática de TDD.

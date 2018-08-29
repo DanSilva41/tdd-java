@@ -95,4 +95,33 @@ public class AvaliadorTest {
 		assertEquals(300.0, tresMaiores.get(1).getValor(), 0.00001);
 		assertEquals(200.0, tresMaiores.get(2).getValor(), 0.00001);
 	}
+
+	@Test
+	public void deveDevolverTodosLancesCasoNaoHajaNoMinimo3() {
+		Usuario joao = new Usuario("João");
+		Usuario maria = new Usuario("Maria");
+		Leilao leilao = new Leilao("PlayStation 3 novo");
+
+		leilao.propoe(new Lance(joao, 100.0));
+		leilao.propoe(new Lance(maria, 500.0));
+
+		Avaliador leiloeiro = new Avaliador();
+		leiloeiro.avaliar(leilao);
+
+		List<Lance> doisEncontrados = leiloeiro.getTresMaiores();
+		assertEquals(2, doisEncontrados.size());
+		assertEquals(500.0, doisEncontrados.get(0).getValor(), 0.00001);
+		assertEquals(100.0, doisEncontrados.get(1).getValor(), 0.00001);
+	}
+
+	@Test
+	public void deveDevolverListaVaziaCasoNaoHajaLances() {
+		Leilao leilao = new Leilao("PlayStation 3 novo");
+
+		Avaliador leiloeiro = new Avaliador();
+		leiloeiro.avaliar(leilao);
+
+		List<Lance> listaVazia = leiloeiro.getTresMaiores();
+		assertEquals(0, listaVazia.size());
+	}
 }
