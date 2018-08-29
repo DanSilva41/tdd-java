@@ -1,8 +1,0 @@
-* Testes manuais e automatizados (possuem 3 passos):
-	- Pensar em um cenário;
-	- Executar uma ação;
-	- Validar a saída;
-
-* JUnit
-	OBS: "Para utilizá-lo em um método, o mesmo não pode ser estático, sem retorno e nem receber argumentos:" -> public void deveTestar(){}
-	

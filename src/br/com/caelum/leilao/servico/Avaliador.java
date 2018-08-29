@@ -1,4 +1,4 @@
-package br.com.caelum.leilao.leilao;
+package br.com.caelum.leilao.servico;
 
 import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
@@ -7,18 +7,24 @@ public class Avaliador {
 
 	private double maiorDeTodos = Double.NEGATIVE_INFINITY;
 	private double menorDeTodos = Double.POSITIVE_INFINITY;
+	private double mediaDeTodos;
 
 	public void avaliar(Leilao leilao) {
-//		Optional<Lance> optionalMaximo = leilao.getLances().stream().max(Comparator.comparing(Lance::getValor));
-//		Optional<Lance> optionalMinimo = leilao.getLances().stream().min(Comparator.comparing(Lance::getValor));
-//		maiorDeTodos = optionalMaximo.orElseThrow(null).getValor();
-//		menorDeTodos = optionalMinimo.orElseThrow(null).getValor();
+		double total = 0;
 		for (Lance lance : leilao.getLances()) {
-			if (lance.getValor() > this.maiorDeTodos)
+			if (lance.getValor() > this.maiorDeTodos) {
 				this.maiorDeTodos = lance.getValor();
-			if (lance.getValor() < this.menorDeTodos) 
+			}
+			if (lance.getValor() < this.menorDeTodos) {
 				this.menorDeTodos = lance.getValor();
+			}
+			total += lance.getValor();
 		}
+		if (total == 0) {
+			this.mediaDeTodos = 0;
+			return;
+		}
+		this.mediaDeTodos = total / leilao.getLances().size();
 	}
 
 	public double getMaiorDeTodos() {
@@ -27,5 +33,9 @@ public class Avaliador {
 
 	public double getMenorDeTodos() {
 		return menorDeTodos;
+	}
+
+	public double getMediaDeTodos() {
+		return mediaDeTodos;
 	}
 }
