@@ -1,0 +1,4 @@
+* Testes manuais e automatizados (possuem 3 passos):
+	- Pensar em um cenário;
+	- Executar uma ação;
+	- Validar a saída;
