@@ -61,7 +61,6 @@ public class AvaliadorTest {
 	public void deveTestarMediaDeLanceZero() {
 
 		// parte 1: cenario
-		Usuario joao = new Usuario("João");
 		Leilao leilao = new Leilao("Playstation 3 Novo");
 
 		// parte 2: acao
