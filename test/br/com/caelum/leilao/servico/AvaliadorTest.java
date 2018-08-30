@@ -1,12 +1,13 @@
 package br.com.caelum.leilao.servico;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,6 +30,7 @@ public class AvaliadorTest {
 		this.joao = new Usuario("João");
 		this.jose = new Usuario("José");
 		this.maria = new Usuario("this.maria");
+		System.out.println("inicio");
 	}
 
 	@After
@@ -56,8 +58,10 @@ public class AvaliadorTest {
 		leiloeiro.avaliar(leilao);
 
 		// parte 3: validacao
-		assertEquals(250.0, leiloeiro.getMenorLance(), 0.00001);
-		assertEquals(400.0, leiloeiro.getMaiorLance(), 0.00001);
+//		assertEquals(250.0, leiloeiro.getMenorLance(), 0.00001);
+//		assertEquals(400.0, leiloeiro.getMaiorLance(), 0.00001);
+		assertThat(leiloeiro.getMenorLance(), equalTo(250.0));
+		assertThat(leiloeiro.getMaiorLance(), equalTo(400.0));
 	}
 
 	@Test
@@ -70,7 +74,7 @@ public class AvaliadorTest {
 		assertEquals(400.0, leiloeiro.getMedia(), 0.00001);
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void deveTestarMediaDeLanceZero() {
 		Leilao leilao = new Leilao("Playstation 3 Novo");
 
@@ -116,7 +120,7 @@ public class AvaliadorTest {
 		assertEquals(100.0, doisEncontrados.get(1).getValor(), 0.00001);
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void deveDevolverListaVaziaCasoNaoHajaLances() {
 		Leilao leilao = new CriadorDeLeilao().para("Playstion 3 novo").constroi();
 		leiloeiro.avaliar(leilao);
@@ -125,15 +129,10 @@ public class AvaliadorTest {
 		assertEquals(0, listaVazia.size());
 	}
 
-	@Test
+	@Test(expected = RuntimeException.class)
 	public void naoDeveAvaliaLeiloesSemNenhumLanceDado() {
-		try {
-			Leilao leilao = new CriadorDeLeilao().para("Playstation3 novo").constroi();
-			leiloeiro.avaliar(leilao);
-			Assert.fail();
-		} catch (RuntimeException e) {
-			System.out.println("Fallha");
-		}
+		Leilao leilao = new CriadorDeLeilao().para("Playstation3 novo").constroi();
+		leiloeiro.avaliar(leilao);
 	}
 
 }
