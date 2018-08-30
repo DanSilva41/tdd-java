@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -122,6 +123,17 @@ public class AvaliadorTest {
 
 		List<Lance> listaVazia = leiloeiro.getTresMaiores();
 		assertEquals(0, listaVazia.size());
+	}
+
+	@Test
+	public void naoDeveAvaliaLeiloesSemNenhumLanceDado() {
+		try {
+			Leilao leilao = new CriadorDeLeilao().para("Playstation3 novo").constroi();
+			leiloeiro.avaliar(leilao);
+			Assert.fail();
+		} catch (RuntimeException e) {
+			System.out.println("Fallha");
+		}
 	}
 
 }
