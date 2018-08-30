@@ -35,6 +35,9 @@
 	- Não se deixe enganar. Se o método contém uma regra de negócio, teste-o. Você agradecerá no futuro.
 
 * TDD (Test Driven Development):
+	TDD é uma prática de desenvolvimento de software na qual o programador escreve um teste antes do código. TDD nos traz segurança e feedback constante sobre a qualidade do nosso código.
+	É uma boa prática para todo desenvolvedor de software!
+	
 	Ao invés de escrever o código primeiro, vamos escrever os testes.
 	Simplicidade o tempo todo!
 	
@@ -51,3 +54,11 @@
 		 Segundo o próprio autor da prática, Kent Beck, você deve tomar passos pequenos sempre que sua "confiança sobre o código" estiver baixa. Se você está trabalhando em um trecho de código e está bastante confiante sobre ele, você pode dar passos um pouco maiores.
 		 
 	TDD faz muito sentido ao implementar novas funcionalidades, ao corrigir bugs, ao trabalhar em códigos complexos, etc. Mas às vezes não precisamos seguir o fluxo ideal da prática de TDD.
+	
+	- Devemos refatorar o código de testes.
+	
+	O método Before é executado antes de cada teste da classe. = @Before
+	O método After é executado após a execução do método de teste. = @After
+	Métodos anotados com @BeforeClass são executados apenas uma vez, antes de todos os métodos de teste.
+	Métodos anotados com @AfterClass, por sua vez, é executado uma vez, após a execução do último método de teste da classe.
+	Test Data Builder: Classes cujo o propósito é criar cenários para testes.
