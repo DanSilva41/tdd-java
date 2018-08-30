@@ -64,3 +64,4 @@
 	Test Data Builder: Classes cujo o propósito é criar cenários para testes.
 	
 	Framwork Hamcrest: Possui diversos métodos que auxiliam nas validações com assertivas, bem intuitivo e legível.
+	Há a possibilidade de criar próprios Matchers para realizar validações com Hamcrest
