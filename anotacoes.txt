@@ -62,3 +62,5 @@
 	Métodos anotados com @BeforeClass são executados apenas uma vez, antes de todos os métodos de teste.
 	Métodos anotados com @AfterClass, por sua vez, é executado uma vez, após a execução do último método de teste da classe.
 	Test Data Builder: Classes cujo o propósito é criar cenários para testes.
+	
+	Framwork Hamcrest: Possui diversos métodos que auxiliam nas validações com assertivas, bem intuitivo e legível.
