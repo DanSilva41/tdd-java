@@ -59,8 +59,6 @@ public class AvaliadorTest {
 		leiloeiro.avaliar(leilao);
 
 		// parte 3: validacao
-//		assertEquals(250.0, leiloeiro.getMenorLance(), 0.00001);
-//		assertEquals(400.0, leiloeiro.getMaiorLance(), 0.00001);
 		assertThat(leiloeiro.getMenorLance(), equalTo(250.0));
 		assertThat(leiloeiro.getMaiorLance(), equalTo(400.0));
 	}
@@ -72,7 +70,6 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-//		assertEquals(400.0, leiloeiro.getMedia(), 0.00001);
 		assertThat(leiloeiro.getMedia(), equalTo(400.0));
 	}
 
@@ -82,7 +79,6 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-//		assertEquals(0, leiloeiro.getMedia(), 0.00001);
 		assertThat(leiloeiro.getMedia(), equalTo(0));
 	}
 
@@ -92,8 +88,6 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-//		assertEquals(1000.0, leiloeiro.getMaiorLance(), 0.00001);
-//		assertEquals(1000.0, leiloeiro.getMenorLance(), 0.00001);
 		assertThat(leiloeiro.getMaiorLance(), equalTo(1000.0));
 		assertThat(leiloeiro.getMenorLance(), equalTo(1000.0));
 	}
@@ -121,8 +115,6 @@ public class AvaliadorTest {
 		List<Lance> doisEncontrados = leiloeiro.getTresMaiores();
 		assertEquals(2, doisEncontrados.size());
 
-//		assertEquals(500.0, doisEncontrados.get(0).getValor(), 0.00001);
-//		assertEquals(100.0, doisEncontrados.get(1).getValor(), 0.00001);
 		assertThat(doisEncontrados.get(0).getValor(), equalTo(500.0));
 		assertThat(doisEncontrados.get(1).getValor(), equalTo(100.0));
 	}
