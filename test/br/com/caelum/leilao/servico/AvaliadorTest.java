@@ -2,6 +2,7 @@ package br.com.caelum.leilao.servico;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItems;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
@@ -71,7 +72,8 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-		assertEquals(400.0, leiloeiro.getMedia(), 0.00001);
+//		assertEquals(400.0, leiloeiro.getMedia(), 0.00001);
+		assertThat(leiloeiro.getMedia(), equalTo(400.0));
 	}
 
 	@Test(expected = RuntimeException.class)
@@ -80,7 +82,8 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-		assertEquals(0, leiloeiro.getMedia(), 0.00001);
+//		assertEquals(0, leiloeiro.getMedia(), 0.00001);
+		assertThat(leiloeiro.getMedia(), equalTo(0));
 	}
 
 	@Test
@@ -89,8 +92,10 @@ public class AvaliadorTest {
 
 		leiloeiro.avaliar(leilao);
 
-		assertEquals(1000.0, leiloeiro.getMaiorLance(), 0.00001);
-		assertEquals(1000.0, leiloeiro.getMenorLance(), 0.00001);
+//		assertEquals(1000.0, leiloeiro.getMaiorLance(), 0.00001);
+//		assertEquals(1000.0, leiloeiro.getMenorLance(), 0.00001);
+		assertThat(leiloeiro.getMaiorLance(), equalTo(1000.0));
+		assertThat(leiloeiro.getMenorLance(), equalTo(1000.0));
 	}
 
 	@Test
@@ -102,9 +107,8 @@ public class AvaliadorTest {
 
 		List<Lance> tresMaiores = leiloeiro.getTresMaiores();
 		assertEquals(3, tresMaiores.size());
-		assertEquals(400.0, tresMaiores.get(0).getValor(), 0.00001);
-		assertEquals(300.0, tresMaiores.get(1).getValor(), 0.00001);
-		assertEquals(200.0, tresMaiores.get(2).getValor(), 0.00001);
+
+		assertThat(tresMaiores, hasItems(new Lance(maria, 400.0), new Lance(joao, 300.0), new Lance(maria, 200.0)));
 	}
 
 	@Test
@@ -116,8 +120,11 @@ public class AvaliadorTest {
 
 		List<Lance> doisEncontrados = leiloeiro.getTresMaiores();
 		assertEquals(2, doisEncontrados.size());
-		assertEquals(500.0, doisEncontrados.get(0).getValor(), 0.00001);
-		assertEquals(100.0, doisEncontrados.get(1).getValor(), 0.00001);
+
+//		assertEquals(500.0, doisEncontrados.get(0).getValor(), 0.00001);
+//		assertEquals(100.0, doisEncontrados.get(1).getValor(), 0.00001);
+		assertThat(doisEncontrados.get(0).getValor(), equalTo(500.0));
+		assertThat(doisEncontrados.get(1).getValor(), equalTo(100.0));
 	}
 
 	@Test(expected = RuntimeException.class)

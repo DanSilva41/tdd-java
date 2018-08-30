@@ -25,7 +25,7 @@ public class Leilao {
 			propoe(new Lance(usuario, ultimoLance.getValor() * 2));
 	}
 
-	private Lance ultimoLanceDo(Usuario usuario) {
+	public Lance ultimoLanceDo(Usuario usuario) {
 		Lance ultimo = null;
 		for (Lance lance : lances)
 			if (lance.getUsuario().equals(usuario))
